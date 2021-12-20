@@ -2,7 +2,6 @@ def sortColors(nums):
     red =[]
     white = []
     blue = []
-    ans = []
     for i in nums:
         if i == 0:
             red.append(i)
@@ -10,7 +9,8 @@ def sortColors(nums):
             white.append(i)
         else:
             blue.append(i)
-    ans.extend(red)
-    ans.extend(white)
-    ans.extend(blue)
-    return ans
+    nums.clear()
+    nums.extend(red)
+    nums.extend(white)
+    nums.extend(blue)
+
