@@ -1,4 +1,4 @@
-def minSetSize(self, arr: List[int]) -> int:
+def minSetSize(arr):
 
         counts = {}
         for i in arr:
