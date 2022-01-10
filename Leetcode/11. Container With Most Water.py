@@ -1,4 +1,4 @@
-def maxArea(self, height: List[int]) -> int:
+def maxArea(height):
         begin = 0
         end = len(height)-1
         maxArea = 0
