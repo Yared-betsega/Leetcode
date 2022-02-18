@@ -4,8 +4,10 @@ class Solution:
         zeros = 0
         maxim = 0
         while fast < len(nums):
+            
             if nums[fast] == 0:
                 zeros += 1
+                
             if zeros == k+1:
                 if fast - slow > maxim:
                     maxim = fast - slow
@@ -13,9 +15,11 @@ class Solution:
                     slow += 1
                 slow += 1
                 zeros -= 1
-            if fast - slow +1 > maxim:
+                
+            if fast - slow + 1 > maxim:
                 maxim = fast - slow+1
-            fast += 1        
+            fast += 1 
+            
         return maxim
     
 #time space complexity
