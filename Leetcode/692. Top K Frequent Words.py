@@ -1,15 +1,19 @@
 import heapq as hq
-
 class Solution:
-    def topKFrequent(self, words: List[str], k: int) -> List[str]:
-        hq.heapify(words)
-        repo = {}
-        while words:
-            value = hq.heappop(words)
-            if value in repo:
-                repo[value] += 1
-            else:
-                repo[value] = 1
-        sortedNums = sorted(repo.items(), key = lambda x:x[1], reverse = True)
-        return [x[0] for x in sortedNums[:k]]
-                
+    def topKFrequent(self, words: List[int], k: int) -> List[int]:
+        repo = Counter(words).items()
+        repo = list(repo)
+        for i in range(len(repo)):
+            repo[i] = -1 * repo[i][1], repo[i][0]
+            
+        hq.heapify(repo)
+        
+        answer = []
+        for i in range(k):
+            seq = hq.heappop(repo)
+            answer.append(seq[1])
+        return answer
+
+# space time complexity
+# time complexity = O( n + klog(n) )
+# space complexity O(1)
