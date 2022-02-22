@@ -10,10 +10,9 @@ class Solution:
         for linkedList in lists:
             node = linkedList
             while node:
-                repo.append(node.val)
+                hq.heappush(repo, node.val)
                 node = node.next
-  
-        hq.heapify(repo)
+        
         head = ListNode(0)
         node = head
         while repo:
@@ -23,3 +22,7 @@ class Solution:
             node = newNode
         head = head.next
         return head
+    
+#     space time complexity
+#     time complexity = O(nlog(n))
+#     space complexity = O(n)
