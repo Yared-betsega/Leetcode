@@ -19,3 +19,7 @@ class Solution:
                     left = mid + 1
             
         return cr
+
+time and space complexity
+time complexity = O(mlog(n))
+space complexity = O(1)
