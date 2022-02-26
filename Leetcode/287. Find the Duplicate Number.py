@@ -24,6 +24,8 @@ class Solution:
         return leftSide, rightSide
 
 # time and space complexity
-# time complexity = O(nlogn), n = max(nums) - min(nums)
+# time complexity = O(mlog(n))
+# n = max(nums) - min(nums)
+# m = len(nums)
 # space complexity = O(1)
         
