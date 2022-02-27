@@ -24,7 +24,7 @@ class Solution:
         return nums[right]
 
 # time and space complexity
-# time complexity O(n)
+# time complexity O(log(n)**2)
 # space complexity = O(n)
                     
             
