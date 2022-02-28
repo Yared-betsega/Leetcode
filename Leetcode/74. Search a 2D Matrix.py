@@ -29,5 +29,5 @@ class Solution:
                 right = mid - 1
 
 # time and space complexity 
-# time complexity = O(max(m, n))
+# time complexity = O(log(m+n))
 # space complexity = O(1)
