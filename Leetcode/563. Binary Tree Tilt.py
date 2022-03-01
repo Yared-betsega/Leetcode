@@ -32,3 +32,6 @@ class Solution:
         allTilt(root)
         return self.total
         
+    # time and space complexity = 
+    # time complexity = O(n**2)
+    # space complexity = O(1)
