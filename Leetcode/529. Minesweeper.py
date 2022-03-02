@@ -15,7 +15,7 @@ class Solution:
                     cnt = 0
                     for tup in self.DIR:
                         neighbor = (cord[0] + tup[0], cord[1] + tup[1])
-                        if isValid(neighbor) and (board[neighbor[0]][neighbor[1]] == "M":
+                        if isValid(neighbor) and board[neighbor[0]][neighbor[1]] == "M":
                             cnt += 1
                     if cnt == 0:
                         board[cord[0]][cord[1]] = "B"
