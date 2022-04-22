@@ -9,7 +9,7 @@ class Solution:
         while node:
             repo.append(node)
             node  = node.next
-        head = repo[0]
+      
         node = head
         j, l, r = 1, 1, len(repo) - 1
         
