@@ -57,13 +57,11 @@ class Solution:
             if not trie.search(word):
                 trie.insert(word)
             repetition[word] += 1
-        heap = []
-        for word, rep in repetition.items():
-            heapq.heappush(heap, (-1*rep, word))
+        
+        new = sorted(repetition.items(), key = lambda x: (-1*x[1], x[0]))
         answer = []
         for i in range(k):
-            seq = heapq.heappop(heap)
-            answer.append(seq[1])
+            answer.append(new[i][0])
         return answer
 
         
