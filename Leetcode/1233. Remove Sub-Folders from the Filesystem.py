@@ -20,6 +20,15 @@ class Trie:
                 return
         current.isEnd = True
         current.nodes = {}
+    
+    def search(self, word: str) -> bool:
+        current = self.root
+        for letter in word:
+            if letter not in current.nodes:
+                return False
+            current = current.nodes[letter]
+  
+        return current.isEnd 
         
 
 class Solution:
@@ -28,16 +37,10 @@ class Solution:
         for cur in folder:
             trie.addFolder(cur)
             
-        answer, lst = [], []
-        def dfs(node, current):
-            lst.append(node)
-            if current.isEnd:
-                answer.append("".join(lst))
-            for node in current.nodes:
-                dfs(node, current.nodes[node])
-                
-            lst.pop()
-            
-        dfs("", trie.root)
+        answer = []
+        for sub in folder:
+            if trie.search(sub):
+                answer.append(sub)
         return answer
+            
             
