@@ -4,7 +4,7 @@ class TrieNode:
     def __init__(self):
         self.children = {}
         self.isEnd = False
-        self.index = 0
+        self.indices = defaultdict(int)
         
 class Trie:
 
@@ -17,39 +17,38 @@ class Trie:
             if letter not in current.children:
                 current.children[letter] = TrieNode()
             current = current.children[letter]
-        current.isEnd = True
-        current.index = index
+            current.indices[word] = max(current.indices[word], index)
         
-    def search(self, prefix, suffix) -> bool:
+    def search(self, prefix) -> bool:
         
         current = self.root
-        lst = []
         for letter in prefix:
             if letter not in current.children:
-                return [-1, -1]
-            lst.append(letter)
+                return []
             current = current.children[letter]
-            
-        self.maxim = [-1, None]
-        def dfs(m, current):
-            if current.isEnd:
-                cur = lst[::-1]
-                notValid = False
-                for i in range(len(suffix)):
-                    if cur[i] != suffix[i]:
-                        notValid = True
-                        break
-                if not notValid:
-                    self.maxim = max([current.index, cur], self.maxim)
-                        
-            for node in current.children:
-                lst.append(node)
-                dfs(node, current.children[node])
-                
-            lst.pop()
-            
-        dfs(letter, current)
-        return self.maxim
+        return current.indices.values()
+    
+class WordFilter:
+
+    def __init__(self, words: List[str]):
+        self.words = words
+        self.triePref = Trie()   
+        self.trieSuf = Trie()
+        for i in range(len(words)):
+            self.triePref.insert(words[i], i)
+            self.trieSuf.insert(words[i][::-1], i)
+        
+    def f(self, prefix: str, suffix: str) -> int:
+        pref = self.triePref.search(prefix)
+        suf = self.trieSuf.search(suffix[::-1])
+        if not pref or not suf:
+            return -1
+        
+        ans  = -float("inf")
+        for i in pref:
+            if i in suf:
+                ans = max(ans, i)
+        return ans                
         
 
 class WordFilter:
@@ -64,8 +63,3 @@ class WordFilter:
         
         return self.trie.search(prefix, suffix[::-1])[0]
         
-                
-
-# Your WordFilter object will be instantiated and called as such:
-# obj = WordFilter(words)
-# param_1 = obj.f(prefix,suffix)
