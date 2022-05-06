@@ -34,9 +34,9 @@ class WordFilter:
         self.words = words
         self.triePref = Trie()   
         self.trieSuf = Trie()
-        for i in range(len(words)):
-            self.triePref.insert(words[i], i)
-            self.trieSuf.insert(words[i][::-1], i)
+        for i, word in enumerate(words):
+            self.triePref.insert(word, i)
+            self.trieSuf.insert(word[::-1], i)
         
     def f(self, prefix: str, suffix: str) -> int:
         pref = self.triePref.search(prefix)
