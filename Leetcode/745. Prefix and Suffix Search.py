@@ -26,7 +26,7 @@ class Trie:
             if letter not in current.children:
                 return []
             current = current.children[letter]
-        return current.indices.values()
+        return set(current.indices.values())
     
 class WordFilter:
 
@@ -49,17 +49,8 @@ class WordFilter:
             if i in suf:
                 ans = max(ans, i)
         return ans                
-        
 
-class WordFilter:
-
-    def __init__(self, words: List[str]):
-        self.words = words
-        self.trie = Trie()   
-        for i in range(len(words)):
-            self.trie.insert(words[i], i)
-        
-    def f(self, prefix: str, suffix: str) -> int:
-        
-        return self.trie.search(prefix, suffix[::-1])[0]
+# Your WordFilter object will be instantiated and called as such:
+# obj = WordFilter(words)
+# param_1 = obj.f(prefix,suffix)
         
