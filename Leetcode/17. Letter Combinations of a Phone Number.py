@@ -1,6 +1,4 @@
-# https://leetcode.com/problems/letter-combinations-of-a-phone-number/
-
-  class Solution:
+class Solution:
     def letterCombinations(self, digits: str) -> List[str]:
         nums_to_letter = {
                             '2': ['a', 'b', 'c'],
@@ -13,20 +11,19 @@
                             '9': ['w', 'x', 'y', 'z']
                         }
 
-        answer = [] 
-        path = []
-        def dfs(i):
+        result = [] 
+        def dfs(i, path):
             for node in nums_to_letter[digits[i]]:
                 path.append(node)
                 if i + 1 < len(digits):
-                    dfs(i+1)
+                    dfs(i+1, path)
                 else:
-                    answer.append(''.join(path))
+                    result.append(''.join(path))
                 path.pop()
             
         if len(digits) > 0:
-            dfs(0)
-        return answer
+            dfs(0, [])
+        return result
     
 # time complexity = O(4**n)
 # space complexity = O(1)
