@@ -1,3 +1,6 @@
+# https://leetcode.com/problems/word-ladder/
+
+#Simple Breadth First search Solution
 class Solution:
     def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
         
@@ -36,9 +39,32 @@ class Solution:
                 return counter
             
         return 0
-            
-            
-            
+       
+#Fast String Solution
+class Solution:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+        wordList = set(wordList)
+        if endWord not in wordList:
+            return 0
+        current = {beginWord}
+        count = 1
+        alphabet = string.ascii_lowercase
+        while current:
+            wordList -= current
+            count += 1
+            nextMove = set()
+            for word in current:
+                for i in range(len(word)):
+                    left, mid, right = word[:i], word[i], word[i+1:]
+                    for char in alphabet:
+                        move = left + char + right
+                        if move in wordList:
+                            if move == endWord:
+                                return count
+                            nextMove.add(move)
+            current = nextMove
+        return 0
+                            
             
             
             
