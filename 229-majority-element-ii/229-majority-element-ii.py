@@ -7,3 +7,7 @@ class Solution:
             if count[num] > len(nums) / 3:
                 answer.add(num)
         return answer
+
+# time and space complexity
+# time: O(n)
+# space: O(n)
