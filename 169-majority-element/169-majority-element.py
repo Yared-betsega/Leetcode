@@ -6,9 +6,7 @@ class Solution:
             if count[num] > len(nums)/2:
                 return num
             
-        # count = Counter(nums)
-        # maxim = -1
-        # for elem in count:
-        #     if count[elem] > len(nums)/2:
-        #         return elem
+# time and space complexity
+# time: O(n)
+# space: O(n)
             
