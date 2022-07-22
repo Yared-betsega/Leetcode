@@ -26,5 +26,9 @@ class Solution:
             firstSum += nums[right_first] if right_first < len(nums) else 0
         return maxSum
 
+# time and space complexity
+# time: O(n**2)
+# space: O(n)
+
             
                 
