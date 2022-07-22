@@ -7,19 +7,20 @@ class Solution:
     def partition(self, head: Optional[ListNode], x: int) -> Optional[ListNode]:
         if not head:
             return head
-        lessThan, moreThan = [], []
+        lessThan, moreThan = ListNode(), ListNode()
+        startOfLessThan, startOfMoreThan = lessThan, moreThan
         node = head
         while node:
             if node.val < x:
-                lessThan.append(node)
+                lessThan.next = node
+                lessThan = lessThan.next
             else:
-                moreThan.append(node)
+                moreThan.next = node
+                moreThan = moreThan.next
             node = node.next
-        lessThan.extend(moreThan)
-        for i in range(len(lessThan)-1):
-            lessThan[i].next = lessThan[i+1]
-        lessThan[-1].next = None
-        return  lessThan[0]
+        lessThan.next = startOfMoreThan.next
+        moreThan.next = None
+        return  startOfLessThan.next
     
 # time and space complexity
 # time: O(n)
