@@ -2,6 +2,7 @@ class Solution:
     def pivotArray(self, nums: List[int], pivot: int) -> List[int]:
         if not nums:
             return nums
+        ##Space O(n) solution
         # lessThan, moreThan, equals = [], [], []
         # for num in nums:
         #     if num < pivot:
@@ -14,6 +15,10 @@ class Solution:
         # lessThan.extend(moreThan)
         # return lessThan 
         
+# time and space complexity
+# time: O(n)
+# space: O(n)
+
         equals = math.inf
         for i in range(len(nums)):
             if nums[i] > pivot:
@@ -29,6 +34,7 @@ class Solution:
                     equals = i
                 
         return list(filter(lambda x: x != "0", nums))
+
 # time and space complexity
 # time: O(n)
-# space: O(n)
+# space: O(1)
