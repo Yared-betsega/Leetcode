@@ -7,43 +7,21 @@ class Solution:
     def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if not head or not head.next:
             return head
-        prev = start = ListNode(-200)
+        prev = start = ListNode(-200) # because node.val cannot be less than -100 so this can be used for some purposes later
         node = head
         while node and node.next:
             if node.val != node.next.val:
                 prev = node
                 node = node.next
             else:
-                while node.next and node.val == node.next.val:
+                while node.next and node.val == node.next.val: # remove same elements
                     node = node.next
-                prev.next = node.next
+                prev.next = node.next 
                 node = node.next
-            if not start.next:
+            if not start.next: # if elements in front are repeated it will be handled here
                 start.next = prev if start.val != prev.val else None
         return start.next
-        # prev = ListNode()
-        # node = head
-        # head = prev
-        # added = set()
-        # rep = set()
-        # while node:
-        #     if node.val in added: 
-        #         prev.next = node.next
-        #         rep.add(node.val)
-        #         node = prev.next
-        #     else:
-        #         prev.next = node
-        #         prev = node
-        #         node = node.next
-        #         added.add(prev.val)
-        # prev = head
-        # node = head.next
-        # while node:
-        #     if node.val in rep:
-        #         prev.next = node.next
-        #         node = prev.next
-        #     else:
-        #         prev.next = node
-        #         prev = node
-        #         node = node.next
-        # return head.next
+    
+# time and space complexity
+# time: O(n)
+# space: O(1)
