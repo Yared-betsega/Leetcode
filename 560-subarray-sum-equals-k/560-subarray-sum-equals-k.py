@@ -14,4 +14,7 @@ class Solution:
             prev[prefixSum[-1]] += 1
             
         return ans
-    
+
+# time and space complexity
+# time: O(n)
+# space: O(n)
