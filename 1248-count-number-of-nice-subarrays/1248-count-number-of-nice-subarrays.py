@@ -16,3 +16,7 @@ class Solution:
             prefix_sum_frequency[prefixSum] += 1 
 
         return ans
+
+# time and space complexity
+# time: O(n)
+# space: O(1)
