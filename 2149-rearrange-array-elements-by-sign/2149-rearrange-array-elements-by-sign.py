@@ -24,4 +24,8 @@ class Solution:
                     answer.append(pos[right])
                     right += 1
         return answer
+
+# time and space complexity
+# time: O(n)
+# space: O(n)
                     
