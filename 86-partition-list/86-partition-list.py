@@ -20,4 +20,7 @@ class Solution:
             lessThan[i].next = lessThan[i+1]
         lessThan[-1].next = None
         return  lessThan[0]
-        
+    
+# time and space complexity
+# time: O(n)
+# space: O(n)
