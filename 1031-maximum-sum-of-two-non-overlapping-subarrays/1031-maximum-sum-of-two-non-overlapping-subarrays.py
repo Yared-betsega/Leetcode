@@ -35,7 +35,7 @@ class Solution:
 
 # time and space complexity
 # time: O(n**2)
-# space: O(n)
+# space: O(1)
 
             
                 
