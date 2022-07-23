@@ -10,5 +10,6 @@ class Solution:
                 return i
         return -1
     
-            
-        # return prefix_sum
+# time and space complexity
+# time: O(n)
+# space: O(n)
