@@ -13,9 +13,11 @@ class Solution:
         sorted_nums = sorted(nums)
         counts = []
         for i in range(len(nums)):
-            # print(nums[i])
             pos = binary_search(sorted_nums, nums[i])
-            # print(sorted_nums[pos-1])
             counts.append(pos)
             del sorted_nums[pos]
         return counts
+
+# time and space complexity
+# time: O(n**2)
+# space: O(n)
