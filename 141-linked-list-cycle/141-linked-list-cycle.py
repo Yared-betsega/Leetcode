@@ -13,3 +13,7 @@ class Solution:
             node.val = "x"
             node = node.next
         return False
+
+# time and space complexity
+# time: O(n)
+# space: O(1)
