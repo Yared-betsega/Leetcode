@@ -10,5 +10,10 @@ class Solution:
                 return False
         
         return True
-            
+
+# time and space complexity
+# time: O(mn)
+# m = right - left
+# n = len(ranges)
+# space: O(1)
                 
