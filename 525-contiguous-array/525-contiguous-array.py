@@ -11,3 +11,7 @@ class Solution:
             else:
                 last[prefix_sum[i]] = i
         return ans
+
+# time and space complexity
+# time: O(n)
+# space: O(n)
