@@ -22,3 +22,7 @@ class Solution:
                 return node
         
         return build(nums, 0, len(nums)-1)
+
+# time and space complexity
+# time: O(n)
+# space: O(1)
