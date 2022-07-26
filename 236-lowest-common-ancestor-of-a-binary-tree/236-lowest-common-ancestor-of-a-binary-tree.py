@@ -21,9 +21,8 @@ class Solution:
                     ancestors.append(node.val)
                     return True
                 
-        p_ancestors = []
+        p_ancestors, q_ancestors = [], [] # To hold the ancestors of p and q
         dfs(root, p, p_ancestors) 
-        q_ancestors = []
         dfs(root, q, q_ancestors)
         q_ancestors = set(q_ancestors)
         for i in range(len(p_ancestors)):
