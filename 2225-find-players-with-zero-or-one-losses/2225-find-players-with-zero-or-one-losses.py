@@ -15,4 +15,7 @@ class Solution:
                 ans[1].append(i)
             
         return [sorted(ans[0]), sorted(ans[1])]
-        
+
+# time and space complexity
+# time: O(nlogn)
+# space: O(n)
