@@ -21,8 +21,6 @@ class Solution:
                     ancestors.append(node.val)
                     return True
                 
-                
-                
         p_ancestors = []
         dfs(root, p, p_ancestors) 
         q_ancestors = []
@@ -31,4 +29,7 @@ class Solution:
         for i in range(len(p_ancestors)):
             if p_ancestors[i] in q_ancestors:
                 return TreeNode(p_ancestors[i])
-            
+
+# time and space complexity
+# time: O(n)
+# space: O(n)
