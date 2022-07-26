@@ -15,10 +15,9 @@ class Solution:
                 for i in range(l, r+1):
                     if nums[mx] < nums[i]:
                         mx = i
-                i = mx
-                node = TreeNode(nums[i])
-                node.left = build(lst[l:i], l, i-1)
-                node.right = build(lst[i+1:r+1], i+1, r)
+                node = TreeNode(nums[mx])
+                node.left = build(lst[l:mx], l, mx-1)
+                node.right = build(lst[mx+1:r+1], mx+1, r)
                 return node
         
         return build(nums, 0, len(nums)-1)
