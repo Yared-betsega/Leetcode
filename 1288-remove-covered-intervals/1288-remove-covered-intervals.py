@@ -7,9 +7,8 @@ class Solution:
                 continue
             current = intervals[i]
             count += 1
-        
         return count
 
 # time and space complexity
 # time: O(nlog(n))
-# space: O(n)
+# space: O(1)
