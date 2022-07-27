@@ -6,6 +6,7 @@
 #         self.right = right
 class Solution:
     def bstFromPreorder(self, preorder: List[int]) -> Optional[TreeNode]:
+        # Solution using monotonic stack
         root = TreeNode(preorder[0])
         stack = [root]
         for i in range(1, len(preorder)):
@@ -21,3 +22,6 @@ class Solution:
         
         return root
             
+# time and space complexity
+# time: O(n)
+# space: O(n)
