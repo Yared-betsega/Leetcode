@@ -23,3 +23,7 @@ class Solution:
             repo[i].right = repo[i+1]
             i += 1
         return root
+
+# time and space complexity
+# time: O(n)
+# space: O(n)
