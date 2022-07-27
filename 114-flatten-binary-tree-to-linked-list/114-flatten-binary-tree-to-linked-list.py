@@ -9,21 +9,37 @@ class Solution:
         """
         Do not return anything, modify root in-place instead.
         """
-        def preOrder(node, repo):
-            if node:
-                repo.append(node)
-                preOrder(node.left, repo)
-                preOrder(node.right, repo)
+        # Space O(n) solution
+#         def preOrder(node, repo):
+#             if node:
+#                 repo.append(node)
+#                 preOrder(node.left, repo)
+#                 preOrder(node.right, repo)
         
-        repo = []
-        preOrder(root, repo)
-        i = 0
-        while i < len(repo) - 1:
-            repo[i].left = None
-            repo[i].right = repo[i+1]
-            i += 1
-        return root
+#         repo = []
+#         preOrder(root, repo)
+#         i = 0
+#         while i < len(repo) - 1:
+#             repo[i].left = None
+#             repo[i].right = repo[i+1]
+#             i += 1
+#         return root
 
 # time and space complexity
 # time: O(n)
 # space: O(n)
+
+        # Space O(1) solution
+        node = root
+        while node:
+            if node.left:
+                current = node.left
+                while current.right:
+                    current = current.right
+                current.right = node.right
+                node.right = node.left
+                node.left = None
+            node = node.right
+        
+        return root
+                    
