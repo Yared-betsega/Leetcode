@@ -8,3 +8,7 @@ class Solution:
             stack.append(intervals[i])
         
         return len(stack)
+
+# time and space complexity
+# time: O(n)
+# space: O(n)
