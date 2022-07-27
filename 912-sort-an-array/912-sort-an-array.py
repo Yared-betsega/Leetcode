@@ -26,5 +26,9 @@ class Solution:
             return temp
         
         return mergeSort(nums)
+
+# time and space complexity
+# time: O(nlogn)
+# space: O(n)
                                 
                     
