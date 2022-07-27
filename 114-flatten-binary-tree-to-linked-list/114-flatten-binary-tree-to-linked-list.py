@@ -42,4 +42,8 @@ class Solution:
             node = node.right
         
         return root
+
+# time and space complexity
+# time: O(n)
+# space: O(1)
                     
