@@ -10,5 +10,5 @@ class Solution:
         return True
 
 # time and space complexity
-# time: O(n)
+# time: O(nlogn)
 # space: O(n)
