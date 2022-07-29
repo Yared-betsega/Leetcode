@@ -12,4 +12,5 @@ class Solution:
                 for j in range(i+1, i + nums[i] + 1):
                     if dp[j]:
                         dp[i] = True
+                        break
         return dp[0]
