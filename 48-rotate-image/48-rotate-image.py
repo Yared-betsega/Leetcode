@@ -12,3 +12,7 @@ class Solution:
             for j in range(len(matrix) - 1, -1, -1):
                 matrix[i][r] = pos[(j, i)]
                 r += 1
+    
+# time and space complexity
+# time: O(n**2)
+# space: O(n**2)
