@@ -17,4 +17,10 @@ class Solution:
             if valid:
                 answer.append(word)
         return answer
+
+# time and space complexity
+# n = len(words)
+# m = len(words[i])
+# time: O(nm)
+# space: O(nm)
                 
