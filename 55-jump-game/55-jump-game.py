@@ -9,8 +9,7 @@ class Solution:
             elif i + nums[i] >= len(nums) - 1:
                 dp[i] = True
             else:
-                for j in range(i+1, i + nums[i] + 1):
-                    if dp[j]:
-                        dp[i] = True
-                        break
+                if any(dp[i:i + nums[i] + 1]):
+                    dp[i] = True
+                
         return dp[0]
