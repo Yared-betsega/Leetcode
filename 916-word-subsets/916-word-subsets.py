@@ -7,13 +7,11 @@ class Solution:
                 count_words2[i] = max(count_words2[i], count[i])
         answer = []
         for word in words1:
-            is_subset = True
             count_word = Counter(word)
             for i in count_words2:
                 if count_words2[i] > count_word[i]:
-                    is_subset = False
                     break
-            if is_subset:
+            else:
                 answer.append(word)
         
         return answer
