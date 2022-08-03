@@ -17,7 +17,6 @@ class Solution:
 #         # space: O(1)
         
         # DP bottom up implementation
-        dp = [cost[i] for i in range(len(cost))]
         plusOne = cost[-2]
         plusTwo = cost[-1]
         for i in range(len(cost) - 3, -1, -1):
