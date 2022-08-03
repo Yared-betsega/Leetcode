@@ -14,6 +14,10 @@ class Solution:
 #         return min(climb(0, 0, defaultdict(list)), climb(1, 0, defaultdict(list)))
         
         dp = [cost[i] for i in range(len(cost))]
+        plusOne = cost[-2]
+        plusTwo = cost[-1]
         for i in range(len(cost) - 3, -1, -1):
-            dp[i] = cost[i] + min(dp[i+1], dp[i + 2])
-        return min(dp[0], dp[1])
+            cur = cost[i] + min(plusOne, plusTwo)
+            plusTwo = plusOne
+            plusOne = cur
+        return min(plusOne, plusTwo)
