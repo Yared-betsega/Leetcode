@@ -41,3 +41,7 @@ class Solution:
                 else: 
                     ans[i][j] = grid[i][j] + ans[i][j + 1]
         return ans[0][0]
+        
+        # time and space complexity
+        # time complexity = O(nm)
+        # space complexity = O(nm)
