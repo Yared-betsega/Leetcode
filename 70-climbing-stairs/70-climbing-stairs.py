@@ -1,7 +1,6 @@
 class Solution:
     def climbStairs(self, n: int) -> int:
         # DP bottom up implementation
-        dp = defaultdict(int)
         oneStep, twoStep = 1, 1
         if n < 2:
             return 1
