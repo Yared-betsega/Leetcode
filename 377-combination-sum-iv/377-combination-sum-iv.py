@@ -15,3 +15,7 @@ class Solution:
             return memo[target]
         
         return helper(target)
+    
+# time and space complexity
+# time: O(nm)
+# space: O(n)
