@@ -1,12 +1,12 @@
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
-        answer = set()
+        answer = []
         def helper(total, i, lst):
             if total > target:
                 lst.pop()
                 return
             if total == target:
-                answer.add(tuple(sorted(lst)))
+                answer.append(lst.copy())
             else:
                 for i in range(i, len(candidates)):
                     lst.append(candidates[i])
