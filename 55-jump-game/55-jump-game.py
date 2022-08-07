@@ -13,13 +13,21 @@ class Solution:
 #                     dp[i] = True
                 
 #         return dp[0]
-        @cache
-        def chooseIndex(i):
-            if i + nums[i] >= len(nums) - 1:
+        # @cache
+        # def chooseIndex(i):
+        #     if i + nums[i] >= len(nums) - 1:
+        #         return True
+        #     for j in range(i + 1, i + nums[i] + 1):
+        #         if chooseIndex(j):
+        #             return True
+        #     return False
+        # return chooseIndex(0)
+        maxReach = 0
+        for i in range(len(nums)):
+            if i > maxReach:
+                return False
+            maxReach = max(i + nums[i], maxReach)
+            if maxReach >= len(nums) - 1:
                 return True
-            for j in range(i + 1, i + nums[i] + 1):
-                if chooseIndex(j):
-                    return True
-            return False
-        return chooseIndex(0)
+        return True
 
