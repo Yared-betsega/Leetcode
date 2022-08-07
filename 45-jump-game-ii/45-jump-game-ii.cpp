@@ -22,20 +22,3 @@ public:
         return steps;
     }
 };
-
-
-// # Single loop O(n) Solution
-// if len(nums) == 1:
-//     return 0
-// maxReach, steps = nums[0], 1
-// i = 0
-// while i < len(nums):
-//     if maxReach >= len(nums) - 1:
-//         return steps
-//     temp = 0
-//     while i < len(nums) and i <= maxReach:
-//         temp = max(temp, i + nums[i])
-//         i += 1
-//     maxReach = temp
-//     steps += 1
-// return steps
