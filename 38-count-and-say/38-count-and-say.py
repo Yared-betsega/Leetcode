@@ -3,12 +3,12 @@ class Solution:
         if n == 1:
              return "1"
         num = self.countAndSay(n-1)
-        cur, ans = 0, ""
+        curChar, curAnswer = 0, ""
         for i in range(len(num)):
-            if num[i] != num[cur]:
-                ans += str(i-cur) + str(num[cur])
-                cur = i
+            if num[i] != num[curChar]:
+                curAnswer += str(i-curChar) + str(num[curChar])
+                curChar = i
             if i == len(num) - 1:
-                ans += str(i-cur+1) + str(num[cur])
-                cur = i
-        return ans  
+                curAnswer += str(i-curChar+1) + str(num[curChar])
+                curChar = i
+        return curAnswer  
