@@ -4,7 +4,7 @@ class Solution:
         for i in range(24):
             ones = 0
             for candidate in candidates:
-                if candidate & 2**i:
+                if 1 << i & candidate:
                     ones += 1
             maxPos = max(maxPos, ones)
             
