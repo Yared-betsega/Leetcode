@@ -18,3 +18,7 @@ class Solution:
                 queue.pop()
             queue.append(i)
         return ans
+
+# time and space complexity
+# time: O(n)
+# space: O(n)
