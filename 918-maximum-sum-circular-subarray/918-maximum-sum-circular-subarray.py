@@ -30,9 +30,8 @@ class Solution:
         for i in range(1, len(nums)):
             max_dp[i] = max(nums[i], nums[i] + max_dp[i-1])
             min_dp[i] = min(nums[i], nums[i] + min_dp[i-1])
-        s = sum(nums)
-        _min = min(min_dp)
-        _max = max(max_dp)
+            
+        s, _min, _max = sum(nums), min(min_dp), max(max_dp)
         if s == _min:
             return _max
         return max(_max, s - _min)
