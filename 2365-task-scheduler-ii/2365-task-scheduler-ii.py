@@ -1,8 +1,6 @@
 class Solution:
     def taskSchedulerII(self, tasks: List[int], space: int) -> int:
-        entry = {}
-        for task in tasks:
-            entry[task] = -space
+        entry = defaultdict(lambda: -space)
         days = 0
         for task in tasks:
             if days - entry[task] >= space:
