@@ -11,3 +11,7 @@ class Solution:
                 days += space - (days - entry[task]) + 1
             entry[task] = days
         return days
+
+# time and space complexity
+# time: O(n)
+# space: O(n)
