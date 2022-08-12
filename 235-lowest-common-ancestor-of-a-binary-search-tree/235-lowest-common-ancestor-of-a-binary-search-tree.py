@@ -15,5 +15,8 @@ class Solution:
             return self.lowestCommonAncestor(root.left, p, q)
         elif min(p.val, q.val) > root.val and max(p.val, q.val) > root.val:
             return self.lowestCommonAncestor(root.right, p, q)
-        
+    
+# time and space complexity
+# time: O(n)
+# space: O(1) not considering the recursion call stack
             
