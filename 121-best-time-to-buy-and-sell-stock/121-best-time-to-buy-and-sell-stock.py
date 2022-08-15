@@ -1,10 +1,16 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        cur_min = 0
-        max_profit = 0
-        for i in range(1, len(prices)):
-            if prices[i] < prices[cur_min]:
-                cur_min = i
+        
+        will_buy = prices[0]
+        dp = 0
+        for price in prices:
+            if price < will_buy:
+                will_buy = price
             else:
-                max_profit = max(max_profit, prices[i] - prices[cur_min])
-        return max_profit
+                dp = max(dp, price - will_buy)
+        
+        return dp
+
+# time and space complexity
+# time complexity = O(n)
+# space complexity = O(1)
