@@ -9,4 +9,8 @@ class Solution:
             elif values[i] - values[j] < j - i:
                 i = j
         return score
+
+# time and space complexity
+# time: O(n)
+# space: O(1)
             
