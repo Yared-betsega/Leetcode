@@ -19,6 +19,10 @@ class Solution:
             return False
         
         return dp(0)
+
+# time and space complexity
+# time: O(n)
+# space: O(n)
                     
                     
             
