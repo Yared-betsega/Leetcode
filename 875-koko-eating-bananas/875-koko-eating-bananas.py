@@ -17,3 +17,6 @@ class Solution:
         
         return r
         
+# time and space complexity
+# time: O(nlog(n))
+# space: O(1)
