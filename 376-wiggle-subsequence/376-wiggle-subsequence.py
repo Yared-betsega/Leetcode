@@ -13,4 +13,7 @@ class Solution:
                     if nums[i] > nums[j]:
                         dp[i] = max(dp[i], [dp[j][0] + 1, 1])
         return max(dp)[0]
-                
+    
+# time and space complexity
+# time: O(n**2)
+# space: O(n)
