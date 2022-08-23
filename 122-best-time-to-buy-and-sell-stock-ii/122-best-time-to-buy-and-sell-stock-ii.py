@@ -12,3 +12,7 @@ class Solution:
                 dp = max(dp, prices[i] - will_buy)
         heappush(ans, -dp)
         return -sum(ans)
+
+# time and space complexity
+# time: O(nlog(n))
+# space: O(n)
