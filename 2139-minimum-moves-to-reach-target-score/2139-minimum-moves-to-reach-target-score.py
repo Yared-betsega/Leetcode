@@ -4,8 +4,8 @@ class Solution:
         while target > 1:
             if maxDoubles == 0:
                 return moves + int(target - 1)
-            if maxDoubles > 0 and target % 2 == 0:
-                target /= 2
+            if maxDoubles > 0 and not target & 1:
+                target = target >> 1
                 maxDoubles -= 1
             else:
                 target -= 1
