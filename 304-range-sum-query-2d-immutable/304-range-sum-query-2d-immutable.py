@@ -12,8 +12,7 @@ class NumMatrix:
                 self.pre[i][j] -= self.pre[i - 1][j - 1] 
     def sumRegion(self, row1: int, col1: int, row2: int, col2: int) -> int:
         l, r = row2+1, col2+1
-        li, lj = max(row1, 0), max(0, col1)
-        return self.pre[l][r] - self.pre[li][r] - self.pre[l][lj] + self.pre[li][lj]
+        return self.pre[l][r] - self.pre[row1][r] - self.pre[l][col1] + self.pre[row1][col1]
 
 
 # Your NumMatrix object will be instantiated and called as such:
