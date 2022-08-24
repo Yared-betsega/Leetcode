@@ -6,7 +6,7 @@ class Solution:
         for _, height in envelopes:
             left, right = 0, len(russianDoll) - 1
             while left <= right:
-                mid=(left + right) // 1
+                mid=(left + right) >> 1
                 if russianDoll[mid] >= height:
                     right = mid - 1
                 else:
