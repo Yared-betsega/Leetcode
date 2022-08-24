@@ -6,8 +6,8 @@ class Solution:
         def rec(n):
             if n <= 5:
                 return True
-            if n & 1 == 0:
-                return rec(n >> 1)
+            if n % 2 == 0:
+                return rec(n // 2)
             elif n % 3 == 0:
                 return rec(n // 3)
             elif n % 5 == 0:
