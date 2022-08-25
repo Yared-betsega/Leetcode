@@ -21,4 +21,8 @@ class Solution:
             count[_sum].append(level)
             level += 1
         return min(count[max(count)])
+
+# time and space complexity
+# time: O(n)
+# space: O(n)
                 
