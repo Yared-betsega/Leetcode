@@ -17,3 +17,7 @@ class Solution:
         
         dfs(root, -float("inf"))
         return answer[0]
+
+# time and space complexity
+# time: O(n)
+# space: O(n) considering the recursion stack
