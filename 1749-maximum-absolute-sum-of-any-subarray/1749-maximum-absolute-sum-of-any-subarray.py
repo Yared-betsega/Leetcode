@@ -1,11 +1,17 @@
 class Solution:
     def maxAbsoluteSum(self, nums: List[int]) -> int:
-        dp_max = nums[:]
-        dp_min = nums[:]
+        dp_max = dp_min = nums[0]
+        gloMax = gloMin = abs(nums[0])
         for i in range(1, len(nums)):
-            dp_max[i] = max(dp_max[i], dp_max[i - 1] + nums[i])
-            dp_min[i] = min(dp_min[i], dp_min[i - 1] + nums[i])
+            dp_max = max(nums[i], dp_max + nums[i])
+            gloMax = max(abs(dp_max), abs(gloMax))
+            dp_min = min(nums[i], dp_min + nums[i])
+            gloMin = max(abs(dp_min), abs(gloMin))
         
-        return max(max(map(abs, dp_max)), max(map(abs, dp_min)))
+        return max(gloMax, gloMin)
+
+# time and space complexity
+# time: O(n)
+# space: O(1)
 
             
