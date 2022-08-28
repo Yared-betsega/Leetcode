@@ -28,3 +28,7 @@ class Solution:
                 col += 1
             
         return mat
+    
+# time and space complexity
+# time: mnlog(n)
+# space: O(1)
