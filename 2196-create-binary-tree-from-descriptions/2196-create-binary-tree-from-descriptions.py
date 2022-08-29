@@ -23,3 +23,7 @@ class Solution:
             if par not in childs:
                 return node[par]
             
+# time and space complexity
+# time: O(n)
+# space: O(n)
+            
