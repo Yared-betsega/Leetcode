@@ -27,7 +27,6 @@ class Solution:
                 nd = nd.next
                 ctr += 1
             node = TreeNode(nd.val)
-            # print(nd.val, nd.next.val)
             node.left = construct(start, ctr - 1)
             node.right = construct(nd.next, length - ctr)
             return node
