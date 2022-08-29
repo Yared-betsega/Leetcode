@@ -11,4 +11,7 @@ class Solution:
                     dic[nums[i] * nums[j]] = 1
         return ans
                     
+# time and space complexity
+# time: O(n**2)
+# space: O(n)
                 
