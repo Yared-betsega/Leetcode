@@ -12,3 +12,7 @@ class Solution:
             for j in range(len(grid[0])):
                 ans += (min(_maxOfRow[i], _maxOfCol[j])) - grid[i][j]
         return ans
+
+# time and space complexity
+# time: O(n**2)
+# space: (n)
