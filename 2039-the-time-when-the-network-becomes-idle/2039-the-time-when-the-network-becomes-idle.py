@@ -25,4 +25,10 @@ class Solution:
             else:
                 ans = max(ans, dis[i])
         return ans + 1
+
+# time and space complexity
+# time: O(n + m)
+# space: O(n)
+# n = number of nodes
+# m = len(edges)
             
