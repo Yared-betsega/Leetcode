@@ -21,6 +21,6 @@ class Solution:
                     queue.append(node)
             
             if level:
-                ans.append(level[:])
+                ans.append(level)
         
         return ans
