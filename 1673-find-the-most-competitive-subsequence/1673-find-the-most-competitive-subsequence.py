@@ -9,3 +9,7 @@ class Solution:
             ans.append(nums[i])
                 
         return ans[:k]
+    
+# time and space complexity
+# time: O(n) Monotonic Stack Concept
+# space: O(n)
