@@ -15,3 +15,7 @@ class Solution:
                 ans += value
                 used += 1
         return ans
+
+# time and space complexity
+# time: O(n)
+# space: O(n)
