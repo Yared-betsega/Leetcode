@@ -29,4 +29,8 @@ class Solution:
             curPos = [verPos, horPos]
             
         return "".join(ans)
+
+# time and space complexity
+# time: O(n)
+# space: O(n)
                 
