@@ -8,3 +8,7 @@ class Solution:
                 ans += 1
             stack.append(properties[i])
         return ans
+
+# time and space complexity
+# time: O(n)
+# space: O(n)
