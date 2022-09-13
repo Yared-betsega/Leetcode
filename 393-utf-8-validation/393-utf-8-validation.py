@@ -1,7 +1,6 @@
 class Solution:
     def validUtf8(self, data: List[int]) -> bool:
-        i = 0
-        jumpState = 0
+        i = jumpState = 0
         while i < len(data):
             rep = bin(data[i])[2:]
             binary = "0" * (8 - len(rep)) + rep
