@@ -6,11 +6,9 @@ class Solution:
         
         while begin < end:
             area = min(height[begin], height[end]) * (end-begin)
-            if area > maxArea:
-                maxArea = area
+            maxArea = max(maxArea, area)
             if height[begin] <= height[end]:
                 begin += 1
-                continue
             else:
                 end -= 1
                 
