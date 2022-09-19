@@ -23,4 +23,8 @@ class Solution:
                         
         if not found:
             nums.sort()
+
+# time and space complexity
+# time: O(n)
+# space: O(n)
             
