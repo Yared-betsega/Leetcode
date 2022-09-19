@@ -8,16 +8,14 @@ class Solution:
             if nums[i] < nums[i + 1]:
                 _max = i + 1
                 for j in range(i + 1, len(nums)):
-                    if nums[j] > nums[i] and nums[j] < nums[_max]:
+                    if nums[j] > nums[i] and nums[j] <= nums[_max]:
                         _max = j
-                elm = nums.pop(_max)
-                nums.insert(i, elm)
-                temp = nums[i + 1: ]
-                temp.sort()
-                n = 0
-                for j in range(i + 1, len(nums)):
-                    nums[j] = temp[n]
-                    n += 1
+                nums[i], nums[_max] = nums[_max], nums[i]
+                l, r = i + 1, len(nums) - 1
+                while l < r:
+                    nums[l], nums[r] = nums[r], nums[l]
+                    l += 1
+                    r -= 1
                 found = True
                 break
                         
@@ -26,5 +24,5 @@ class Solution:
 
 # time and space complexity
 # time: O(n)
-# space: O(n)
+# space: O(1)
             
