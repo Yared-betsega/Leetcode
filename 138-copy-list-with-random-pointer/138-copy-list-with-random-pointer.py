@@ -11,8 +11,7 @@ class Solution:
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
         index = {}
         copy = []
-        node = head
-        i = 0
+        node, i = head, 0
         while node:
             copy.append(Node(node.val))
             index[node] = i
@@ -27,5 +26,9 @@ class Solution:
             node = node.next
             i += 1
         return copy[0]
+    
+# time and space complexity
+# time: O(n)
+# space: O(n)
             
             
