@@ -21,4 +21,8 @@ class Solution:
             
         odd.next = evenStart.next
         return oddStart.next 
+    
+# time and space complexity
+# time: O(n)
+# space: O(1)
         
