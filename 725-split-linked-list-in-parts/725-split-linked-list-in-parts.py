@@ -16,8 +16,8 @@ class Solution:
                 ans.append(node)
                 node = node.next
                 ans[-1].next = None
-            rem = [None for i in range(k - count)]
-            ans.extend(rem)
+            for i in range(k - count):
+                ans.append(None)
         else:
             div = count // k
             partition = [div] * k
@@ -30,7 +30,9 @@ class Solution:
                 for j in range(val):
                     prev = node
                     node = node.next
-                prev.next = None
-                    
+                prev.next = None    
         return ans
-            
+
+# time and space complexity
+# time: O(n)
+# space: O(k)
