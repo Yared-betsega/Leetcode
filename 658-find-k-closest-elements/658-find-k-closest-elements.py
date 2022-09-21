@@ -8,5 +8,8 @@ class Solution:
                 r -= 1
             else:
                 l += 1
-            
+
+# time and space complexity
+# time: O(n)
+# space: O(1)
         
