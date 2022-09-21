@@ -5,18 +5,15 @@
 #         self.next = next
 class Solution:
     def removeZeroSumSublists(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        pos = {0: -1}
-        node = head
+        pos, node, toBeRemoved = {0: -1}, head, []
         _sum = index = 0
-        toBeRemoved = []
         while node:
             _sum += node.val
             if _sum in pos:
                 toBeRemoved.append((pos[_sum] + 1, index))
-            pos[_sum] = index
-            node = node.next
+            pos[_sum], node = index, node.next
             index += 1
-        if not toBeRemoved:
+        if len(toBeRemoved) == 0:
             return head
         toBeRemoved.sort(key = lambda x: (x[0], -x[1]))
         merged = [toBeRemoved[0]]
@@ -27,8 +24,7 @@ class Solution:
                 for i in range(toBeRemoved[i][0], toBeRemoved[i][1] + 1):
                     remove.add(i)
         prev = start = ListNode()
-        i = 0
-        node = head
+        node, i = head, 0
         while node:
             if i not in remove:
                 prev.next = node
@@ -37,3 +33,7 @@ class Solution:
             i += 1
         prev.next = None
         return start.next
+
+# time and space complexity
+# time: O(n)
+# space: O(n)
