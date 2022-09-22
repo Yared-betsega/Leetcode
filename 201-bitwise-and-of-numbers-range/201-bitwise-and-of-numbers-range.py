@@ -5,6 +5,7 @@ class Solution:
         
         # To get the shortest lenght of the binary representation of the largest element
         # Takes O(32) ~ O(1) time complexity
+        maxBinLength = 0
         for i in range(32):
             if right & (1 << i):
                 maxBinLength = 32 - i
