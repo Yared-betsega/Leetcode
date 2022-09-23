@@ -1,7 +1,7 @@
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
         ans = 0
-        for char in string.ascii_uppercase:
+        for char in set(s):
             l = r = 0
             count = 0
             while r < len(s):
