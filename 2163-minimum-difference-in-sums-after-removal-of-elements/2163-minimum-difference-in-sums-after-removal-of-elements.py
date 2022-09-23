@@ -17,11 +17,9 @@ class Solution:
             if len(maxes) > len(nums) / 3:
                 _rightSum -= heappop(maxes)
             
-        # print(lefts, rights) 
         ans = float("inf")
         for i in range(len(nums)):
             if i + 1 >= len(nums) / 3 and len(nums) - i > len(nums) / 3:
-                # print(i)
                 ans = min(ans, lefts[i] - rights[i])
         return ans
         
