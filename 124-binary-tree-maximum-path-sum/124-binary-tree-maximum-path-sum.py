@@ -16,3 +16,7 @@ class Solution:
             return -float("inf")
         dfs(root)
         return self.ans
+
+# time and space complexity
+# time: O(n)
+# space: O(1)
