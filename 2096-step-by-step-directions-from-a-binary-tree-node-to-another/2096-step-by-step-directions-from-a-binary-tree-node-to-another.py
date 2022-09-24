@@ -40,6 +40,7 @@ class Solution:
                 return False
             
         collectParents(root)
+        
         for parent in reversed(parents):
             found = findPath(parent)
             if found:
@@ -48,3 +49,7 @@ class Solution:
             ans.append("U")
             
         return "".join(ans)
+
+# time and space complexity
+# time: O(nlogn)
+# space O(n)
