@@ -22,8 +22,9 @@ class Solution:
             return False
         
         ans = []
-        def findPath(node, side = None, dontGo = 0):
-            if node.val != dontGo:
+        visited = set()
+        def findPath(node, side = None):
+            if node.val not in visited:
                 if side:
                     ans.append(side)
                 if node.val == destValue:
@@ -39,13 +40,11 @@ class Solution:
                 return False
             
         collectParents(root)
-        # print([p.val for p in parents])
-        prevParent = 0
         for parent in reversed(parents):
-            
-            found = findPath(parent, dontGo = prevParent)
+            found = findPath(parent)
             if found:
                 break
-            prevParent = parent.val
+            visited.add(parent.val)
             ans.append("U")
+            
         return "".join(ans)
