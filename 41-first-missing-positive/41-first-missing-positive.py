@@ -10,3 +10,7 @@ class Solution:
                 return i + 1
                 
         return len(nums) + 1
+    
+# time and space complexity
+# time: O(n)
+# space: O(1)
