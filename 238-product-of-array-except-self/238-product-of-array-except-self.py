@@ -1,24 +1,17 @@
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        c = nums.count(0)
-        if c > 1:
-            return [0] * len(nums)
-        elif c == 1:
-            ans = [0] * len(nums)
-            ind = nums.index(0)
-            _prod = 1
-            for num in nums:
-                if num != 0:
-                    _prod *= num
-            ans[ind] = _prod
-            return ans
-        else:
-            _prod = reduce(lambda x, y: x * y, nums)
-            ans = []
-            for num in nums:
-                ans.append(_prod // num)
-            return ans
-    
+        pre = 1
+        ans = []
+        for i in range(len(nums)):
+            ans.append(pre)
+            pre *= nums[i]
+        
+        post = 1
+        for i in range(len(nums) - 1, -1, -1):
+            ans[i] *= post
+            post *= nums[i]
+        
+        return ans
 
 # time and space complexity 
 # time complexity = O(n)
