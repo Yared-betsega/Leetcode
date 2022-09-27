@@ -29,3 +29,7 @@ class Solution:
                     dominoes[i] = "R"
         
         return "".join(dominoes)
+
+# time and space complexity
+# time: O(n)
+# space: O(n)
