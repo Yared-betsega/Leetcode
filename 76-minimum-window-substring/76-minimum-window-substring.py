@@ -20,9 +20,8 @@ class Solution:
                     l += 1
                 else:
                     break
-                
             scount[s[r]] += 1
-            # print(scount, ans)
+            
             if check():
                 ans = min([r - l + 1, (l, r)], ans)
                 while l < r and check():
@@ -30,6 +29,5 @@ class Solution:
                     l += 1
                 
             r += 1
-            # print(l, r)
         
         return s[ans[1][0]: ans[1][1] + 1]
