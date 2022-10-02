@@ -4,20 +4,20 @@ class Solution:
         isValid = lambda x: 0 <= x[0] < m and 0 <= x[1] < n
         
         # Top down solution
-        @cache
-        def dp(r, c):
-            if isValid((r, c)):
-                if r == m - 1 and c == n - 1:
-                    if dungeon[r][c] <= 0:
-                        return dungeon[r][c]
-                    return 0
-                after = dungeon[r][c] +  max(dp(r + 1, c), dp(r, c + 1))
-                if after <= 0:
-                    return after
-                return 0
-            return -float("inf")
-        ans = -dp(0, 0) + 1
-        return ans if ans != float("inf") else 1
+        # @cache
+        # def dp(r, c):
+        #     if isValid((r, c)):
+        #         if r == m - 1 and c == n - 1:
+        #             if dungeon[r][c] <= 0:
+        #                 return dungeon[r][c]
+        #             return 0
+        #         after = dungeon[r][c] +  max(dp(r + 1, c), dp(r, c + 1))
+        #         if after <= 0:
+        #             return after
+        #         return 0
+        #     return -float("inf")
+        # ans = -dp(0, 0) + 1
+        # return ans if ans != float("inf") else 1
         
 # time and space complexity
 # time: O(mn)
@@ -37,8 +37,10 @@ class Solution:
                 ans = dungeon[i][j] + max(right, bottom)
                 if ans == -float("inf"):
                     if dungeon[i][j] <= 0:
-                        return dungeon[i][j]
-                    return 0
-                dp[i][j] = ans  if ans <= 0 else 0
-        
-        return dp[0][0]
+                        dp[i][j] = dungeon[i][j]
+                    else:
+                        dp[i][j] = 0
+                else:
+                    dp[i][j] = ans  if ans <= 0 else 0
+        # print(dp)
+        return -dp[0][0] + 1
