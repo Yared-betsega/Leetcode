@@ -14,7 +14,9 @@ class Solution:
                     return after
                 return 0
             return -float("inf")
-        # print(dp(0, 0))
         ans = -dp(0, 0) + 1
         return ans if ans != float("inf") else 1
-        
+
+# time and space complexity
+# time: O(mn)
+# space: O(mn)
