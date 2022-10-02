@@ -2,6 +2,8 @@ class Solution:
     def calculateMinimumHP(self, dungeon: List[List[int]]) -> int:
         m, n = len(dungeon), len(dungeon[0])
         isValid = lambda x: 0 <= x[0] < m and 0 <= x[1] < n
+        
+        # Top down solution
         @cache
         def dp(r, c):
             if isValid((r, c)):
@@ -16,7 +18,27 @@ class Solution:
             return -float("inf")
         ans = -dp(0, 0) + 1
         return ans if ans != float("inf") else 1
-
+        
 # time and space complexity
 # time: O(mn)
 # space: O(mn)
+
+        # Bottom up solution
+        dp = [[-float("inf")] * n for i in range(m)]
+        dp[m - 1][n - 1] = dungeon[m-1][n-1] if dungeon[m-1][n-1] < 0 else 0
+        for i in range(m - 1, -1, -1):
+            for j in range(n - 1, -1, -1):
+                right = bottom = -float("inf")
+                if isValid((i + 1, j)):
+                    right = dp[i + 1][j]
+                if isValid((i, j + 1)):
+                    bottom = dp[i][j + 1]
+                
+                ans = dungeon[i][j] + max(right, bottom)
+                if ans == -float("inf"):
+                    if dungeon[i][j] <= 0:
+                        return dungeon[i][j]
+                    return 0
+                dp[i][j] = ans  if ans <= 0 else 0
+        
+        return dp[0][0]
