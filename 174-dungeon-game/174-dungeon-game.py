@@ -28,12 +28,8 @@ class Solution:
         dp[m - 1][n - 1] = dungeon[m-1][n-1] if dungeon[m-1][n-1] < 0 else 0
         for i in range(m - 1, -1, -1):
             for j in range(n - 1, -1, -1):
-                right = bottom = -float("inf")
-                if isValid((i + 1, j)):
-                    right = dp[i + 1][j]
-                if isValid((i, j + 1)):
-                    bottom = dp[i][j + 1]
-                
+                right = dp[i + 1][j] if isValid((i + 1, j)) else -float("inf")
+                bottom = dp[i][j + 1] if isValid((i, j + 1)) else -float("inf")  
                 ans = dungeon[i][j] + max(right, bottom)
                 if ans == -float("inf"):
                     if dungeon[i][j] <= 0:
@@ -42,5 +38,8 @@ class Solution:
                         dp[i][j] = 0
                 else:
                     dp[i][j] = ans  if ans <= 0 else 0
-        # print(dp)
         return -dp[0][0] + 1
+
+# time and space complexity
+# time: O(mn)
+# space: O(mn)
