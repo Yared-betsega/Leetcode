@@ -13,3 +13,7 @@ class Solution:
                 ans += total - _max
         
         return ans
+
+# time and space complexity
+# time: O(n)
+# space: O(1)
