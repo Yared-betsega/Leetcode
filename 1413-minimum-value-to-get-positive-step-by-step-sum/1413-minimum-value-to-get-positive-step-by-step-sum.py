@@ -1,11 +1,14 @@
 class Solution:
     def minStartValue(self, nums: List[int]) -> int:
-        prefix_sum = [nums[0]]
-        for i in range(1, len(nums)):
-            prefix_sum.append(prefix_sum[i-1] + nums[i])
-        target = min(prefix_sum) 
-        return 1 if target >= 0 else -1 * target + 1
+        prefix_sum = 0 
+        startValue = 1
+        for val in nums:
+            prefix_sum += val
+            if prefix_sum <= 0:
+                startValue = max(startValue, 1 - prefix_sum)
+        
+        return startValue
   
 # time and space complexity
 # time: O(n)
-# space: O(n)
+# space: O(1)
