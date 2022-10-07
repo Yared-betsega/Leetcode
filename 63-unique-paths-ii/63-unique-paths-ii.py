@@ -5,7 +5,7 @@ class Solution:
         DIR = [(0, 1), (1, 0)]
         isValid = lambda move: 0 <= move[0] < len(obstacleGrid) and 0 <= move[1] < len(obstacleGrid[0])
         
-        @lru_cache
+        @lru_cache(None)
         def dfs(node):
             if not isValid(node) or obstacleGrid[node[0]][node[1]] == 1:
                 return 0
