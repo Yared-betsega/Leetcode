@@ -11,7 +11,7 @@ class Solution:
                     if color[cur] == color[nxt]:
                         return False
                     if color[nxt] == -1:
-                        queue.append((nxt, not color[cur]))
+                        queue.append((nxt, 1 - color[cur]))
             return True
         
         for i in range(len(graph)):
