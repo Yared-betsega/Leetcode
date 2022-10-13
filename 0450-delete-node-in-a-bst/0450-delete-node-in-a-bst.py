@@ -1,4 +1,4 @@
-# Definition for a binary tree node.
+# Definition for a binary tree toBeDel.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
 #         self.val = val
@@ -6,26 +6,29 @@
 #         self.right = right
 class Solution:
     def deleteNode(self, root: Optional[TreeNode], key: int) -> Optional[TreeNode]:
-        node, prev = root, None
-        while node and node.val != key:
-            if node.val < key:
-                prev, node = node, node.right
+        toBeDel, prev = root, None
+        while toBeDel and toBeDel.val != key:
+            if toBeDel.val < key:
+                prev, toBeDel = toBeDel, toBeDel.right
             else:
-                prev, node = node, node.left
-        
-        if not node:
+                prev, toBeDel = toBeDel, toBeDel.left
+                
+        if not toBeDel:
             return root
-        if node.right:
-            head = node.right
+        
+        if toBeDel.right:
+            head = toBeDel.right
             while head.left:
                 head = head.left
-            head.left = node.left
-        else: node.right = node.left
-        if node.val == root.val:
+            head.left = toBeDel.left
+        else: toBeDel.right = toBeDel.left
+            
+        if toBeDel.val == root.val:
             return root.right
-        if node.val > prev.val:
-            prev.right = node.right
+        
+        if toBeDel.val > prev.val:
+            prev.right = toBeDel.right
         else:
-            prev.left = node.right
+            prev.left = toBeDel.right
         return root
         
