@@ -1,14 +1,15 @@
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
-        # wordCt = Counter(word)
-        # boardCt = defaultdict(int)
-        # for i in range(len(board)):
-        #     for j in range(len(board[0])):
-        #         boardCt[i][j] += 1
-                
-                
-                
-                
+        wordCt = Counter(word)
+        boardCt = defaultdict(int)
+        for i in range(len(board)):
+            for j in range(len(board[0])):
+                boardCt[board[i][j]] += 1
+        
+        for w in word:
+            if boardCt[w] < wordCt[w]:
+                return False
+        
         DIR = [(0,1), (0,-1), (1,0), (-1,0)]
         isValid = lambda x: 0 <= x[0] < len(board) and 0 <= x[1] < len(board[0])
         
