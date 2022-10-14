@@ -19,14 +19,14 @@ class Solution:
                 return True
             if board[r][c] != word[i]:
                 return False
-            
-            path.add((r, c))
+            temp = board[r][c]
+            board[r][c] = -1
             for dx, dy in DIR:
                 nx, ny = r + dx, c + dy
-                if isValid((nx, ny)) and (nx, ny) not in path:
+                if isValid((nx, ny)):
                     if dfs(nx, ny, i + 1, path):
                         return True
-            path.remove((r, c))
+            board[r][c] = temp
             
         for i in range(len(board)):
             for j in range(len(board[0])):
