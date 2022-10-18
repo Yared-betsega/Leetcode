@@ -18,9 +18,6 @@ class Solution:
                 currentNumber += 1
             rightIndex -= 1
             
-            if topIndex > bottomIndex or leftIndex > rightIndex:
-                break
-            
             for i in range(rightIndex, leftIndex - 1, -1):
                 matrix[bottomIndex][i] = currentNumber
                 currentNumber += 1
