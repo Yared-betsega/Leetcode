@@ -8,7 +8,6 @@ class Solution:
         isValid = lambda row, col: 0 <= row < rows and 0 <= col < cols
         
         while len(answer) < rows * cols:
-            # print(answer)
             for i in range(leftIndex, rightIndex + 1):
                 if isValid(topIndex, i):
                     answer.append([topIndex, i])
