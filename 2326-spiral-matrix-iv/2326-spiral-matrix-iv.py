@@ -14,23 +14,33 @@ class Solution:
         
         while topIndex <= bottomIndex and leftIndex <= rightIndex and currentNode:
             for i in range(leftIndex, rightIndex + 1):
-                matrix[topIndex][i] = currentNode.val if currentNode else -1
-                currentNode = currentNode.next if currentNode else None
+                if currentNode:
+                    matrix[topIndex][i] = currentNode.val 
+                    currentNode = currentNode.next
+                else: break
             topIndex += 1
-            if topIndex <= bottomIndex:
+            if topIndex <= bottomIndex and currentNode:
                 for i in range(topIndex, bottomIndex + 1):
-                    matrix[i][rightIndex] = currentNode.val if currentNode else -1
-                    currentNode = currentNode.next if currentNode else None
+                    if currentNode:
+                        matrix[i][rightIndex] = currentNode.val 
+                        currentNode = currentNode.next
+                    else: break
                 rightIndex -= 1
                 if rightIndex >= leftIndex:
                     for i in range(rightIndex, leftIndex - 1, -1):
-                        matrix[bottomIndex][i] = currentNode.val if currentNode else -1
-                        currentNode = currentNode.next if currentNode else None
+                        if currentNode:
+                            matrix[bottomIndex][i] = currentNode.val 
+                            currentNode = currentNode.next
+                        else:
+                            break
                     bottomIndex -= 1
                     if topIndex <= bottomIndex:
                         for i in range(bottomIndex, topIndex - 1, -1):
-                            matrix[i][leftIndex] = currentNode.val if currentNode else -1
-                            currentNode = currentNode.next if currentNode else None
+                            if currentNode:
+                                matrix[i][leftIndex] = currentNode.val 
+                                currentNode = currentNode.next
+                            else:
+                                break
                         leftIndex += 1
 
         return matrix
