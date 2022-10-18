@@ -10,9 +10,9 @@ class Solution:
         bottomIndex = m - 1
         topIndex = 0
         currentNode = head
-        matrix = [[0 for i in range(n)] for i in range(m)]
+        matrix = [[-1 for i in range(n)] for i in range(m)]
         
-        while topIndex <= bottomIndex and leftIndex <= rightIndex:
+        while topIndex <= bottomIndex and leftIndex <= rightIndex and currentNode:
             for i in range(leftIndex, rightIndex + 1):
                 matrix[topIndex][i] = currentNode.val if currentNode else -1
                 currentNode = currentNode.next if currentNode else None
