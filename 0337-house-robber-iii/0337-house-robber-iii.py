@@ -7,15 +7,27 @@
 class Solution:
     def rob(self, root: Optional[TreeNode]) -> int:
         
-        @cache
-        def dp(node, canRob):
-            if not node:
-                return 0
-            if not canRob:
-                return dp(node.left, True) + dp(node.right, True)
+#         def dp(node, canRob):
+#             if not node:
+#                 return 0
+#             if not canRob:
+#                 return dp(node.left, True) + dp(node.right, True)
 
-            rob = node.val + (dp(node.left, False) + dp(node.right, False))
-            dontRob = dp(node.left, True) + dp(node.right, True)
-            return max(rob, dontRob)
+#             rob = node.val + (dp(node.left, False) + dp(node.right, False))
+#             dontRob = dp(node.left, True) + dp(node.right, True)
+#             return max(rob, dontRob)
         
-        return dp(root, True)
+#         return dp(root, True)
+            
+        def dfs(node):
+            if not node: return [0, 0]
+            left = dfs(node.left)
+            right = dfs(node.right)
+            
+            rob = node.val + left[1] + right[1]
+            dontRob = max(left) + max(right)
+            return [rob, dontRob]
+        
+        return max(dfs(root))
+    
+        
