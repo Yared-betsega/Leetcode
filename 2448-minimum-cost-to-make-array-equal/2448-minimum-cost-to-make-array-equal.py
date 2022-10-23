@@ -15,7 +15,7 @@ class Solution:
         currentCost = find_cost(pairs[0][0])
         answer = currentCost
         for i in range(1, len(nums)):
-            diff = pairs[i][0] - pairs[i - 1][0]
+            diff = pairs[i][0] - pairs[i-1][0]
             left = diff * prefixCost[i]
             right = diff * (prefixCost[-1] - prefixCost[i])
             currentCost = currentCost + left - right
