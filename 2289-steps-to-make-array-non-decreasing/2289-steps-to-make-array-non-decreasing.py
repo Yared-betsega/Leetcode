@@ -8,7 +8,6 @@ class Solution:
             while stack and nums[stack[-1]] < nums[i]:
                 last = stack.pop()
                 delete[i] = max(delete[i] + 1, delete[last])
-    
             stack.append(i)
         return max(delete)
 
