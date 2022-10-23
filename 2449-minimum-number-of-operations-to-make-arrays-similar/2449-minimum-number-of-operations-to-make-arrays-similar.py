@@ -24,3 +24,7 @@ class Solution:
                 answer += first - second
         
         return answer // 2
+
+# time and space complexity
+# time: O(nlog(n))
+# space: O(n)
