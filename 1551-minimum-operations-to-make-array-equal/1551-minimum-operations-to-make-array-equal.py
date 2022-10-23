@@ -1,11 +1,6 @@
 class Solution:
     def minOperations(self, n: int) -> int:
-        if n % 2 == 0:
-            return (n // 2) ** 2            
-        else:
-            return ((n // 2) ** 2) + (n // 2)
-        
-        
+        return  (n // 2) ** 2 if n % 2 == 0 else ((n // 2) ** 2) + (n // 2)        
     
 # time and space complexity
 # time: O(1)
