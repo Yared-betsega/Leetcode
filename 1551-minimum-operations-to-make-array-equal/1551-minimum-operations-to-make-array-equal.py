@@ -10,3 +10,7 @@ class Solution:
         for i in range(n // 2, n):
             answer += (2 * i + 1) - target
         return answer
+    
+# time and space complexity
+# time: O(n)
+# space: O(1)
