@@ -7,8 +7,11 @@ class Solution:
                 continue
             cur = nums[i]
             nums[i], nums[cur - 1] = nums[cur - 1], nums[i]
-            # print(nums)
             
         for i in range(len(nums)):
             if nums[i] != i + 1:
                 return nums[i], i + 1
+    
+# time and space complexity
+# time: O(n)
+# space: O(1)
