@@ -4,7 +4,7 @@ class Solution:
         count = list(count.values())
         satisfied = (1 << len(quantity)) - 1
         
-        @cache
+        @lru_cache(None)
         def dp(i, recieved, used):
             if recieved == satisfied:
                 return True
