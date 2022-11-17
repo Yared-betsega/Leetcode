@@ -13,3 +13,7 @@ class Solution:
         
         backtrack(0, "")
         return answer
+
+# time and space complexity
+# time: O(2 ** n)
+# space: O(n) ==> Stack size (if stack size is not considered, it becomes O(1))
