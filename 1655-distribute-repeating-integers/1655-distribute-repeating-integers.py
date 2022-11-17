@@ -2,11 +2,11 @@ class Solution:
     def canDistribute(self, nums: List[int], quantity: List[int]) -> bool:
         count = Counter(nums)
         count = list(count.values())
-        satisfied = (1 << len(quantity)) - 1
+        satisfyAll = (1 << len(quantity)) - 1
         
         @lru_cache(None)
         def dp(i, recieved, used):
-            if recieved == satisfied:
+            if recieved == satisfyAll:
                 return True
             if i == len(count):
                 return False
