@@ -13,6 +13,7 @@ class MyCalendarThree:
             prevBookings += sign
             answer = max(answer, prevBookings)
         return answer
+    
 # Your MyCalendarThree object will be instantiated and called as such:
 # obj = MyCalendarThree()
 # param_1 = obj.book(start,end)
