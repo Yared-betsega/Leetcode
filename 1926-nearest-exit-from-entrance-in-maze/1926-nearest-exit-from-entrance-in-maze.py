@@ -3,8 +3,7 @@ class Solution:
         m, n = len(maze), len(maze[0])
         DIR = [(1,0), (-1,0), (0,1),(0,-1)]
         queue = deque([entrance])
-        visited = [[False for i in range(n)] for j in range(m)]
-        visited[entrance[0]][entrance[1]] = True
+        maze[entrance[0]][entrance[1]] = "+"
         level = 0
         isValid = lambda r, c: 0 <= r < m and 0 <= c < n
         while queue:
@@ -17,10 +16,9 @@ class Solution:
                 
                 for dx, dy in DIR:
                     nx, ny = row + dx, col + dy
-                    if isValid(nx, ny) and not visited[nx][ny]:
-                        if maze[nx][ny] == ".":
-                            queue.append([nx, ny])
-                            visited[nx][ny] = True
+                    if isValid(nx, ny) and maze[nx][ny] == ".":
+                        queue.append([nx, ny])
+                        maze[nx][ny] = "+"
             
             level += 1
         
