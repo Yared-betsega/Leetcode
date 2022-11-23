@@ -12,21 +12,21 @@ class Solution:
             if not graph[node]:
                 return 1, node
             
-            children = []
+            pathsFromChildren = []
             for neigh in graph[node]:
                 path, ch = dfs(neigh)
                 if s[node] != s[ch]:
-                    heappush(children, -path)
+                    heappush(pathsFromChildren, -path)
             
             i = 0
-            pathSum = 0
-            maxChild = -children[0] if children else 0
-            while children and i < 2:
-                pathSum += -heappop(children)
+            pathSumForTwoBranches = 0
+            maxChildPath = -pathsFromChildren[0] if pathsFromChildren else 0
+            while pathsFromChildren and i < 2:
+                pathSumForTwoBranches += -heappop(pathsFromChildren)
                 i += 1
-            answer[0] = max(answer[0], 1 + pathSum)
+            answer[0] = max(answer[0], 1 + pathSumForTwoBranches)
                         
-            return maxChild + 1, node
+            return maxChildPath + 1, node
         
         dfs(0)
         return answer[0]
