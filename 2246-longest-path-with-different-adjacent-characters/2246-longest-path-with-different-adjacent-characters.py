@@ -32,5 +32,5 @@ class Solution:
         return answer[0]
 
 # time and space complexity
-# time: O(V + E), V = no of nodes, E = number of edges (len(parent))
+# time: O(V + Elog(E)), V = no of nodes, E = number of edges (len(parent))
 # space: O(V)
