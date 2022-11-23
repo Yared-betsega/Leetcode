@@ -16,16 +16,17 @@ class Solution:
             for neigh in graph[node]:
                 path, ch = dfs(neigh)
                 if s[node] != s[ch]:
-                    children.append(path)
+                    heappush(children, -path)
             
-            if len(children) <= 2:
-                answer[0] = max(answer[0], 1 + sum(children))
-            
-            else:
-                children.sort()
-                answer[0] = max(answer[0], 1 + children[-1] + children[-2])
-            children.append(0)
-            return max(children) + 1, node
+            i = 0
+            pathSum = 0
+            maxChild = -children[0] if children else 0
+            while children and i < 2:
+                pathSum += -heappop(children)
+                i += 1
+            answer[0] = max(answer[0], 1 + pathSum)
+                        
+            return maxChild + 1, node
         
         dfs(0)
         return answer[0]
