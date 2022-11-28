@@ -6,7 +6,7 @@ class Solution:
             indegree[match[1]] += 1
             players.add(match[0])
             players.add(match[1])
-            
+        
         ans = [[], []]
         for i in players:
             if indegree[i] == 0:
