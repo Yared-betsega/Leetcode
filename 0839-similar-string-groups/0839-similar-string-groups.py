@@ -24,16 +24,19 @@ class UnionFind:
         
 class Solution:
     def numSimilarGroups(self, strs: List[str]) -> int:
-        strs = list(set(strs))
+        pos = {}
+        for i in range(len(strs)):
+            pos[strs[i]] = i
+            
         unionfind = UnionFind()
         for i in range(len(strs)):
             for j in range(i + 1, len(strs)):
                 if self.check(strs[i], strs[j]):
-                    unionfind.merge(strs[i], strs[j])
+                    unionfind.merge(pos[strs[i]], pos[strs[j]])
         
         groups = 0
-        for st in strs:
-            if st == unionfind.find(st):
+        for st in pos:
+            if pos[st] == unionfind.find(pos[st]):
                 groups += 1
                 
         return groups
