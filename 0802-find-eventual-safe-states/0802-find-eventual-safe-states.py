@@ -5,7 +5,6 @@ class Solution:
         inCycle = set()
         def topSort(node):
             if color[node] == 1:
-                inCycle.add(node)
                 return True
             if color[node] == 2:
                 return False
@@ -14,9 +13,7 @@ class Solution:
             
             for neigh in graph[node]:
                 hasCycle = topSort(neigh)
-                self.ans += hasCycle
                 if hasCycle:
-                    inCycle.add(node)
                     return True
             
             color[node] = 2
@@ -26,6 +23,6 @@ class Solution:
             
         ans = []
         for i in range(len(graph)):
-            if i not in inCycle:
+            if color[i] == 2:
                 ans.append(i)
         return ans
