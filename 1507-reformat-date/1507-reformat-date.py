@@ -2,7 +2,7 @@ class Solution:
     def reformatDate(self, date: str) -> str:
         s = date.split() 
         
-        monthDict = {'Jan': '01', 'Feb': '02', 
+        months = {'Jan': '01', 'Feb': '02', 
                      'Mar': '03', 'Apr': '04', 
                      'May': '05', 'Jun': '06', 
                      'Jul': '07', 'Aug': '08', 
@@ -16,4 +16,4 @@ class Solution:
         if int(day) < 10: 
             day = '0' + day
         
-        return ''.join(f'{year}-{monthDict[month]}-{day}') 
+        return ''.join(f'{year}-{months[month]}-{day}') 
