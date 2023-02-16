@@ -1,33 +1,28 @@
 class Solution:
     def calcEquation(self, equations: List[List[str]], values: List[float], queries: List[List[str]]) -> List[float]:
-        parent = {}
-        value = {}
-        def find(x):
-            if x == parent[x][0]:
-                return parent[x]
-            parentX, parentV = find(parent[x][0]) 
-            parent[x] = (parentX, parentV * parent[x][1]) 
-            return parent[x] 
+        graph = defaultdict(dict)
+        N = len(equations)
+        for i in range(N):
+            graph[equations[i][0]][equations[i][1]] = values[i] 
+            graph[equations[i][1]][equations[i][0]] = 1/values[i] 
         
-        def divide(a, b):
-            pa, va = find(a)  
-            pb, vb = find(b)  
-            return vb/va if pa == pb else -1.0   
-        
-        for (x, y), v in zip(equations, values):
-            if x not in parent and y not in parent:
-                parent[x] = (x, 1.0)
-                parent[y] = (x, v)
-            elif x not in parent:
-                py, parentV = find(y) 
-                parent[x] = (py, parentV / v)
-            elif y not in parent:
-                parentX, parentV = find(x)
-                parent[y] = (parentX, parentV * v) 
-            else:
-                parentX, parentVx = find(x)
-                py, parentVy = find(y)
-                if parentX != py:
-                    parent[py] = (parentX, parentVx * v / parentVy)
+        def dfs(x, y, visited):
+            if x not in graph or y not in graph:
+                return -1
+            if y in graph[x]:
+                return graph[x][y]
             
-        return [divide(x, y) if x in parent and y in parent else -1.0 for x, y in queries]
+            visited.add(x)
+            for node in graph[x]:
+                if node not in visited:
+                    val = dfs(node, y, visited)
+                    if val != -1:
+                        return val * graph[x][node]
+
+            return -1
+        
+        ans = []
+        for x, y in queries:
+            ans.append(dfs(x, y, set()))
+        
+        return ans
