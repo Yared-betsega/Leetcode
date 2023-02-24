@@ -3,10 +3,8 @@ class Solution:
         UAM = defaultdict(set)
         for user, time in logs:
             UAM[user].add(time)
-        
-        count = Counter(map(lambda x: len(x[1]), UAM.items()))
-        
-        ans = []
-        for i in range(k):
-            ans.append(count[i + 1])
+                
+        ans = [0] * k
+        for user in UAM:
+            ans[len(UAM[user]) - 1] += 1
         return ans
