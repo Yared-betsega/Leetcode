@@ -10,21 +10,20 @@ class Solution:
             if root is None:
                 return True
 
-            queue = []
-            queue.append(root)
+            queue = deque([root])
             is_non_full_node = False
 
-            while len(queue) > 0:
-                current_node = queue.pop(0)
+            while queue:
+                current_node = queue.popleft()
 
-                if current_node.left is not None:
+                if current_node.left:
                     if is_non_full_node:
                         return False
                     queue.append(current_node.left)
                 else:
                     is_non_full_node = True
 
-                if current_node.right is not None:
+                if current_node.right:
                     if is_non_full_node:
                         return False
                     queue.append(current_node.right)
